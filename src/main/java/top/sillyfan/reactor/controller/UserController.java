@@ -1,7 +1,7 @@
 package top.sillyfan.reactor.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 import top.sillyfan.reactor.controller.domain.UserForm;
 import top.sillyfan.reactor.domain.model.Interes;
@@ -41,7 +41,7 @@ public class UserController {
     }
 
     @GetMapping("")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @Secured("ROLE_ADMIN")
     public List<User> getAll(Principal principal) {
 
 
